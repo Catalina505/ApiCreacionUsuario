@@ -3,7 +3,7 @@ package com.spring.testUsers.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.spring.testUsers.commons.EntityNotFoundException;
+import com.spring.testUsers.commons.EntityBadRequestException;
 import com.spring.testUsers.entities.User;
 import com.spring.testUsers.repositories.IUserRepository;
 
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService{
 			return userRepo.save(newUser);
 		} else {
 			System.out.print("Correo electronico ya existe");
-			throw new EntityNotFoundException("Correo electronico ya existe");
+			throw new EntityBadRequestException("Correo electronico ya existe");
 		}
 
 	}

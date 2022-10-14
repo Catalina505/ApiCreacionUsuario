@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spring.testUsers.commons.EntityNotFoundException;
+import com.spring.testUsers.commons.EntityBadRequestException;
 import com.spring.testUsers.entities.User;
 import com.spring.testUsers.services.UserService;
 
@@ -26,7 +26,7 @@ public class UserController {
 		try {
 			return new ResponseEntity(userService.saveUser(user), HttpStatus.CREATED);
 			//return null;
-		} catch (EntityNotFoundException e) {
+		} catch (EntityBadRequestException e) {
 			throw e;
 		}
 		

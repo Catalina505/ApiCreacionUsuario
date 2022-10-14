@@ -1,15 +1,15 @@
 package com.spring.testUsers.commons;
 
-public class EntityNotFoundException extends RuntimeException{
+public class EntityBadRequestException extends RuntimeException{
 	
 	private int errorCode;
     private String errorMessage;
 
-    public EntityNotFoundException(String message) {
+    public EntityBadRequestException(String message) {
 		super(message);
     }
     
-    public EntityNotFoundException(String message, int errorCode) {
+    public EntityBadRequestException(String message, int errorCode) {
 		super();
         this.setErrorCode(errorCode);
         this.errorMessage = message;

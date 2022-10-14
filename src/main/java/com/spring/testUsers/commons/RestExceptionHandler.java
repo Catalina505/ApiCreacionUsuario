@@ -11,10 +11,10 @@ import com.spring.testUsers.entities.UserErrorResponse;
 @ControllerAdvice
 public class RestExceptionHandler {
 	
-	@ExceptionHandler(EntityNotFoundException.class)
+	@ExceptionHandler(EntityBadRequestException.class)
     @ResponseBody
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public UserErrorResponse handleEntityNotFoundException(EntityNotFoundException ex) {
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public UserErrorResponse handleEntityNotFoundException(EntityBadRequestException ex) {
 		UserErrorResponse response = new UserErrorResponse(ex.getMessage());
         return response;
     }
